@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+ 
+  form: any = {
+    data: {}
+  }
 
-  isLogin(){
-    return false;
+  constructor( private router: Router) { }
+
+  isLogin() {
+    let check = localStorage.getItem('firstName', );
+
+    
+    if (check != "null" && check != null) {
+     
+      this.form.data.firstName = localStorage.getItem("firstName");
+      
+      this.form.data.roleName = localStorage.getItem("roleName");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('/login')
   }
 
 }

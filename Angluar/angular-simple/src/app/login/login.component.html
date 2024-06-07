@@ -1,24 +1,35 @@
-<h1>Login</h1>
-<table>
-<tr>
+<app-navbar></app-navbar>
 
-    <td>
-<h3>{{form.message}}</h3>
+<div align="center">
+    <font color="navy">
+        <h1>Login</h1>
+    </font>
+</div>
 
-    </td>
-</tr>
-<tr>
-    <th>Login ID :</th>
-    <td><input type="text" [(ngModel)]="form.loginId" name="loginId" /></td>
-</tr>
-<tr>
-    <th>Password :</th>
-    <td><input type="text" [(ngModel)]="form.password" name="password" /></td>
-</tr>
-<tr>
-    <th></th>
-    <td><button (click)="signIn()">submit</button></td>
-</tr>
+<div align="center">
+    <h3>
+        <font color="red">{{form.message}}</font>
+    </h3>
+</div>
 
-
+<table align="center">
+    <tr>
+        <th>LoginID :</th>
+        <td><input type="text" [(ngModel)]="form.data.loginId" name="loginId" /></td>
+        <td *ngIf="form.inputerror.loginId != null" style="position: fixed;">
+            <font color="red">{{form.inputerror.loginId}}</font>
+        </td>
+    </tr>
+    <tr>
+        <th>Password :</th>
+        <td><input type="text" [(ngModel)]="form.data.password" name="password" /></td>
+        <td *ngIf="form.inputerror.loginId != null" style="position: fixed;">
+            <font color="red">{{form.inputerror.password}}</font>
+        </td>
+    </tr>
+    
+    <tr>
+        <th></th>
+        <td><button (click)="signIn()">signIn</button> &nbsp; <button (click)="signUp()">signUp</button></td>
+    </tr>
 </table>
